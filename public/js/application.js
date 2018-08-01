@@ -25,7 +25,9 @@ var datafile = new plupload.Uploader({
 		PostInit: function() {
 			document.getElementById('filelist').innerHTML = '';	 
 			document.getElementById('upload').onclick = function() {
-			datafile.start();
+				//Adding get param to the URL
+				datafile.setOption('url', BASE_URL + 'upload/uploadtoserver?type=image');
+				datafile.start();
 				return false;
 			};
 		},
