@@ -16,7 +16,16 @@ class Upload extends CI_Controller {
 
 		// Settings
 
-		$targetDir = FCPATH . "uploads";
+		// Updaing the Upload folder according to the url param
+		switch ($ip_param) {
+			case 'image':
+				$targetDir = FCPATH . "uploads/images/";
+				break;
+			
+			default:
+				$targetDir = FCPATH . "uploads";
+				break;
+		}
 		//$targetDir = 'uploads';
 		$cleanupTargetDir = true; // Remove old files
 		$maxFileAge = 5 * 3600; // Temp file age in seconds
